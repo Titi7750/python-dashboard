@@ -117,5 +117,17 @@ fig_bar_line.update_layout(
     legend=dict(x=1, y=1),
     barmode='group'
 )
-
 st.plotly_chart(fig_bar_line)
+
+st.markdown(
+    '<h2>👉Total Sales by Region and City in Treemap</h2>',
+    unsafe_allow_html=True
+)
+
+fig_treemap = px.treemap(
+    dataframe,
+    path=['Region', 'City'],
+    values='TotalSales'
+)
+
+st.plotly_chart(fig_treemap)
